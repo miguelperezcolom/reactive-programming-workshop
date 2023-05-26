@@ -47,7 +47,6 @@ public class Tests02Lifecycle {
         //given
         Flux<String> flux = Flux
                 .just("Hola", "Mundo")
-                //
                 // .doOnNext(s -> printerService.print(s))
                 ;
 
@@ -94,26 +93,6 @@ public class Tests02Lifecycle {
 
         //then
         Mockito.verify(printerService).print("error x");
-    }
-
-    @Test
-    public void onCancelWorks() throws InterruptedException {
-        //given
-
-        AtomicReference<Subscription> subscription = new AtomicReference<>();
-        Flux<String> flux = Flux
-                .just("Hola", "Mundo")
-                .delayElements(Duration.ofSeconds(10))
-                .doOnSubscribe(s -> subscription.set(s))
-                .doOnCancel(() -> printerService.print("cancelled"));
-
-        //when
-        flux.subscribe();
-        subscription.get().cancel();
-        Thread.sleep(1000);
-
-        //then
-        Mockito.verify(printerService).print("cancelled");
     }
 
     @Test

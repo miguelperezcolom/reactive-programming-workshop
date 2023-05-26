@@ -12,13 +12,11 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * basic tests, for realizing that you need to subscribe. If not, nothing actually happens
+ * some tests for some basic operators
  */
 @SpringBootTest
 public class Tests03Operators {
 
-    @SpyBean
-    PrinterService printerService;
 
     @Test
     public void filterWorksAsExpected() {
