@@ -9,7 +9,6 @@ import org.springframework.boot.test.mock.mockito.SpyBean;
 import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.core.publisher.Signal;
 import reactor.core.publisher.SignalType;
 
 import java.time.Duration;
@@ -118,7 +117,7 @@ public class Tests02Lifecycle {
     }
 
     @Test
-    public void onCancelWorksWhenDisposed() throws InterruptedException {
+    public void onCancelIsCalledWhenDisposed() throws InterruptedException {
         //given
         Flux<String> flux = Flux
                 .just("Hola", "Mundo")
@@ -135,7 +134,7 @@ public class Tests02Lifecycle {
     }
 
     @Test
-    public void doFinallyWorksWhenDisposed() throws InterruptedException {
+    public void doFinallyIsCalledWhenDisposed() throws InterruptedException {
         //given
         Flux<String> flux = Flux
                 .just("Hola", "Mundo")
