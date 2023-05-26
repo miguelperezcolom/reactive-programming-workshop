@@ -15,3 +15,8 @@ This project is intended to contain examples and exercises for the reactive prog
 - kafka
 - testing
 - context value passing
+
+
+## References
+
+- https://projectreactor.io/learn
